@@ -2,3 +2,4 @@ npm i boostrap
 npm install @mui/material
 npm install @mui/icons-material
 npm i react-router-dom
+npm install clsx
