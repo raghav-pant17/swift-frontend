@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import TheatreMovies from "./pages/TheatreMovies"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,6 +13,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      {/* <Route index element={<TheatreMovies />} /> */}
       </Route>
     </Routes>
   </BrowserRouter>
