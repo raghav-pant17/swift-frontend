@@ -15,9 +15,6 @@ const Appbar = () => {
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             <Link to="/" style={{textDecoration:'none', color:'white' }}>SWIFT </Link>
           </Typography>
-          <Link to="/login" style={{textDecoration:'none', color:'white', marginRight: 50, fontSize:'large'}}>
-          <PersonOutlineIcon />
-          </Link>
         </Toolbar>
       </AppBar>
     </Box>

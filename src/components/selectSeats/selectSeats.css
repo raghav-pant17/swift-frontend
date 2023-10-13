@@ -1,0 +1,61 @@
+.SeatSelectionWindow {
+    margin-top: 2rem;
+    padding: 0;
+    font-family: 'Exo 2', sans-serif;
+    background: #ffffff;
+    color: rgb(53, 53, 53);
+    font-size: 14px;
+    min-height: 100vh;
+    display: grid;
+    text-align: center;
+  }
+
+.ShowCase {
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: #cecdcd;
+    padding: 12px;
+    border-radius: 4px;
+    color: #3a3a3a;
+  }
+
+  .ShowCase li {
+    margin: 0 12px;
+  }
+
+  .seat {
+    display: inline-block;
+    background: #ededed;
+    width: 16px;
+    height: 12px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  
+    position: relative;
+    top: 1px;
+  }
+  
+  .seat.selected {
+    background: #7bc47f !important;
+  }
+  
+  .seat.occupied {
+    background: #626262;
+  }
+
+  .Cinema {
+    perspective: 400px;
+  }
+
+  .screen {
+    height: 5rem;
+    background: rgb(235, 235, 235);
+    width: 50%;
+    transform: rotateX(-30deg) scale(1.1);
+    perspective: 100px;
+    box-shadow: 0 3px 10px 2px;
+  }
