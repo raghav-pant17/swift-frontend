@@ -1,0 +1,16 @@
+npm i boostrap mui
+npm install @mui/material
+npm install @mui/icons-material
+npm install @mui/material @emotion/react @emotion/styled
+npm i react-elastic-carousel
+npm i react-router-dom
+npm i react-bootstrap
+npm i react-slick
+npm install slick-carousel
+npm install @mui/joy
+npm i axios
+npm install @reduxjs/toolkit
+npm install react-redux
+npm i react-responsive-carousel
+
+npm install clsx

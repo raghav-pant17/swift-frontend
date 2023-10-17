@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import MoviesTheatres from "./pages/MoviesTheatres";
