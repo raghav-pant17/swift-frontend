@@ -7,5 +7,5 @@ npm i react-router-dom
 npm i react-bootstrap
 npm i react-slick
 npm install slick-carousel
-
+npm i axios
 npm install clsx

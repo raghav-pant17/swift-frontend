@@ -7,11 +7,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import axios from "axios";
 
 const AddLocation = () => {
   const [location, setLocation] = useState({
-    name: "",
-    theatre: "",
+    location_name: "", // Corrected property name to match the API's expected field name
+    theatre: [],
   });
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -32,14 +33,25 @@ const AddLocation = () => {
     setSnackbarOpen(false);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // backend
-    // message from backend
-    setSnackbarMessage("Location added successfully");
-    setSnackbarOpen(true);
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/customer/addLocation",
+        location
+      );
+      console.log(response.data); // Log the response for debugging purposes
+      setSnackbarMessage("Location added successfully");
+      setSnackbarOpen(true);
+      // Optionally, you can clear the form after successful submission
+      setLocation({
+        location_name: "",
+        theatre: [],
+      });
+    } catch (error) {
+      console.error(error); // Handle error appropriately, e.g., display error message to the user
+    }
   };
-
   return (
     <Grid
       container
@@ -55,13 +67,14 @@ const AddLocation = () => {
           <form onSubmit={handleSubmit}>
             <TextField
               label="Enter name of the location here"
-              name="name"
-              value={location.name}
+              name="location_name" // Corrected name attribute
+              value={location.location_name} // Corrected state property
               onChange={handleChange}
               fullWidth
               required
               margin="normal"
             />
+            {/* You can add more form fields for 'theatre' property if needed */}
             <Box mt={1}>
               <Button type="submit" variant="contained" color="primary">
                 Submit
@@ -72,7 +85,7 @@ const AddLocation = () => {
       </Grid>
       <Snackbar
         open={snackbarOpen}
-        autoHideDuration={6000} // Adjust as needed
+        autoHideDuration={6000}
         onClose={handleSnackbarClose}
       >
         <MuiAlert
