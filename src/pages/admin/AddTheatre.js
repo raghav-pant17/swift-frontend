@@ -26,8 +26,8 @@ const AddTheatre = () => {
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
   useEffect(() => {
-    // Fetch city data from the API using Axios
-    Axios.get("http://localhost:8080/api/customer/locations") // Replace "API_ENDPOINT_HERE" with the actual API endpoint
+    //Axios
+    Axios.get("http://localhost:8080/api/customer/locations")
       .then((response) => {
         setCities(
           response.data.userDetail

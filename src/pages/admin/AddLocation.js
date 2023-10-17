@@ -11,7 +11,7 @@ import axios from "axios";
 
 const AddLocation = () => {
   const [location, setLocation] = useState({
-    location_name: "", // Corrected property name to match the API's expected field name
+    location_name: "",
     theatre: [],
   });
 
@@ -40,16 +40,16 @@ const AddLocation = () => {
         "http://localhost:8080/api/customer/addLocation",
         location
       );
-      console.log(response.data); // Log the response for debugging purposes
+      console.log(response.data);
       setSnackbarMessage("Location added successfully");
       setSnackbarOpen(true);
-      // Optionally, you can clear the form after successful submission
+      // Resetting the form after submission
       setLocation({
         location_name: "",
         theatre: [],
       });
     } catch (error) {
-      console.error(error); // Handle error appropriately, e.g., display error message to the user
+      console.error(error); // error debugging
     }
   };
   return (
@@ -67,14 +67,13 @@ const AddLocation = () => {
           <form onSubmit={handleSubmit}>
             <TextField
               label="Enter name of the location here"
-              name="location_name" // Corrected name attribute
-              value={location.location_name} // Corrected state property
+              name="location_name"
+              value={location.location_name}
               onChange={handleChange}
               fullWidth
               required
               margin="normal"
             />
-            {/* You can add more form fields for 'theatre' property if needed */}
             <Box mt={1}>
               <Button type="submit" variant="contained" color="primary">
                 Submit
