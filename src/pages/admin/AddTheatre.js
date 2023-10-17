@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
@@ -12,6 +12,7 @@ import Paper from "@mui/material/Paper";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import MuiAlert from "@mui/material/Alert";
+import Axios from "axios";
 
 const AddTheatre = () => {
   const [theatreData, setTheatreData] = useState({
@@ -19,9 +20,25 @@ const AddTheatre = () => {
     address: "",
     city: "",
   });
+  const [cities, setCities] = useState([]);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+
+  useEffect(() => {
+    // Fetch city data from the API using Axios
+    Axios.get("http://localhost:8080/api/customer/locations") // Replace "API_ENDPOINT_HERE" with the actual API endpoint
+      .then((response) => {
+        setCities(
+          response.data.userDetail
+            .map((user) => user.location_name)
+            .filter((city) => city)
+        );
+      })
+      .catch((error) => {
+        console.error("Error fetching city data:", error);
+      });
+  }, []); // Empty dependency array ensures this effect runs once after the initial render
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,9 +86,11 @@ const AddTheatre = () => {
                   onChange={handleChange}
                   required
                 >
-                  <MenuItem value="City1">City 1</MenuItem>
-                  <MenuItem value="City2">City 2</MenuItem>
-                  <MenuItem value="City3">City 3</MenuItem>
+                  {cities.map((city) => (
+                    <MenuItem key={city} value={city}>
+                      {city}
+                    </MenuItem>
+                  ))}
                 </Select>
               </FormControl>
             </Grid>
