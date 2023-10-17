@@ -1,7 +1,6 @@
 .maindiv{
-    margin-left: 30rem;
-    margin-top: 10rem;
-    border: 2px solid gray;
+    margin-left: 25rem;
+    margin-top: 5rem;
     width: 40%;
     height: 75%;
 }
@@ -15,12 +14,22 @@
     margin-left: 10rem;
 }
 .firstinput{
-    margin-left: 5rem;
+    /* margin-left: 5rem; */
 }
 .secondinput{
-    margin-right: 20rem;
+    /* margin-right: 20rem; */
+    margin-left: 20px;
+    
 }
 .btn{
     margin-top: 3rem;
-    margin-left: 10rem;
+    margin-left: 8.5rem;
+    background-color: green;
+    color: aliceblue;
+    border: none;
+    
+}
+
+.btn:hover{
+    background-color: rgb(0, 79, 0);
 }

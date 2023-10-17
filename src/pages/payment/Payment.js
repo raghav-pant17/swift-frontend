@@ -166,7 +166,7 @@ export default function Payment() {
         </AccordionDetails>
       </Accordion>
     </div>
-    <div className="disc">Discription</div>
+    <div className="disc">discription</div>
     </div>
   );
 }
