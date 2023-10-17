@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Grid, Paper, Typography, Container, Button } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MovieIcon from "@mui/icons-material/Movie";
@@ -19,7 +20,7 @@ const headingStyle = {
   color: "#fff",
   padding: "10px",
   borderRadius: "5px",
-  marginBottom: "20px", // Add margin to separate the heading from grids
+  marginBottom: "20px",
 };
 
 const smallerGridItem = {
@@ -28,7 +29,7 @@ const smallerGridItem = {
 };
 
 const AdminDashboard = () => {
-  const createDashboardItem = (title, icon) => (
+  const createDashboardItem = (title, icon, linkTo) => (
     <Grid item xs={12} md={6}>
       <Paper elevation={3} style={{ ...smallerGridItem }}>
         <div style={centerBoth}>
@@ -37,7 +38,12 @@ const AdminDashboard = () => {
             {title}
           </Typography>
           <Button variant="contained" color="primary">
-            Add
+            <Link
+              to={linkTo}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Add
+            </Link>
           </Button>
         </div>
       </Paper>
@@ -51,12 +57,12 @@ const AdminDashboard = () => {
       </div>
       <Grid container spacing={3}>
         <Grid container item xs={12} spacing={3}>
-          {createDashboardItem("Add City", <RoomIcon />)}
-          {createDashboardItem("Add Theatre", <RoomIcon />)}
+          {createDashboardItem("Add Location", <RoomIcon />, "/add-location")}
+          {createDashboardItem("Add Theatre", <RoomIcon />, "/add-theatre")}
         </Grid>
         <Grid container item xs={12} spacing={3}>
-          {createDashboardItem("Add Movie", <MovieIcon />)}
-          {createDashboardItem("Add Show", <CalendarTodayIcon />)}
+          {createDashboardItem("Add Movie", <MovieIcon />, "/add-movie")}
+          {createDashboardItem("Add Show", <CalendarTodayIcon />, "/add-show")}
         </Grid>
       </Grid>
     </Container>

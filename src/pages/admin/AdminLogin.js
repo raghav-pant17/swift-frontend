@@ -13,7 +13,7 @@ const AdminLogin = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // You can send the login data to your Spring Boot backend here
+    // backend
     console.log("Username:", username);
     console.log("Password:", password);
   };

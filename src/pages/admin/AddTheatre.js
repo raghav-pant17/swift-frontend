@@ -31,10 +31,10 @@ const AddTheatre = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate form fields
+    // Validation
     if (theatreData.name && theatreData.address && theatreData.city) {
-      // Example: You can send the 'theatreData' to your backend API here
-      // Display success message
+      // backend
+      // Display message
       setSnackbarSeverity("success");
       setSnackbarMessage("Theatre added successfully.");
     } else {

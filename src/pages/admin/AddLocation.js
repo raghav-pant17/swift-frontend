@@ -34,8 +34,8 @@ const AddLocation = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Send the location object to the backend here
-    // Assuming you have a success message from the backend
+    // backend
+    // message from backend
     setSnackbarMessage("Location added successfully");
     setSnackbarOpen(true);
   };
@@ -79,7 +79,7 @@ const AddLocation = () => {
           elevation={6}
           variant="filled"
           onClose={handleSnackbarClose}
-          severity="success" // You can change the severity to "error" or "warning" if needed
+          severity="success"
         >
           {snackbarMessage}
         </MuiAlert>

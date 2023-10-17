@@ -50,9 +50,9 @@ const MovieForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Handle form submission here (e.g., send data to the backend).
+    // backend
 
-    // For this example, simulate a success message
+    // backend message
     setSnackbarSeverity("success");
     setSnackbarMessage("Movie added successfully.");
 
