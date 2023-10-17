@@ -1,0 +1,43 @@
+.ibbox{
+  margin-left: 10rem;
+}
+.inside{
+
+}
+
+#demo-row-radio-buttons-group-label{
+    margin-left: 10rem;
+}
+.tex{
+    margin-top: 3rem;
+}
+.mainbox {
+    margin-top: 1rem;
+
+}
+.select-div{
+    margin: 2rem;
+    margin-left: 10rem;
+   
+}
+
+/* #demo-simple-select-table{
+    width: 10px;
+} */
+
+.banklogo{
+    width: 100px;
+    height: 60px;
+    background: none;
+}
+
+.axisbanklogo{
+   
+    height: 30px;
+    width: 100px;
+}
+
+td{
+    align-items: center;
+    text-align: center;
+}
