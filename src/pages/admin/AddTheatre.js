@@ -6,39 +6,30 @@ import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Grid from "@mui/material/Grid";
-import Snackbar from "@mui/material/Snackbar";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import MuiAlert from "@mui/material/Alert";
 import Axios from "axios";
+import { post } from "jquery";
 
 const AddTheatre = () => {
   const [theatreData, setTheatreData] = useState({
     name: "",
     address: "",
-    city: "",
+    location: "",
   });
-  const [cities, setCities] = useState([]);
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
-  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    //Axios
     Axios.get("http://localhost:8080/api/customer/locations")
       .then((response) => {
-        setCities(
-          response.data.userDetail
-            .map((user) => user.location_name)
-            .filter((city) => city)
-        );
+        setLocations(response.data.userDetail);
       })
       .catch((error) => {
-        console.error("Error fetching city data:", error);
+        console.error("Error fetching location data:", error);
       });
-  }, []); // Empty dependency array ensures this effect runs once after the initial render
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,21 +40,24 @@ const AddTheatre = () => {
     e.preventDefault();
 
     // Validation
-    if (theatreData.name && theatreData.address && theatreData.city) {
-      // backend
-      // Display message
-      setSnackbarSeverity("success");
-      setSnackbarMessage("Theatre added successfully.");
+    if (theatreData.name && theatreData.address && theatreData.location) {
+      const postData = {
+        theater_address: theatreData.address,
+        theater_name: theatreData.name,
+        location_id: theatreData.location.id,
+      };
+      console.log("1", postData);
+
+      Axios.post("endpoint", postData)
+        .then((response) => {
+          console.log("Theatre added successfully.", response);
+        })
+        .catch((error) => {
+          console.error("Error adding theatre:", error);
+        });
     } else {
-      setSnackbarSeverity("error");
-      setSnackbarMessage("Please fill in all required fields.");
+      console.error("Please fill in all required fields.");
     }
-
-    setOpenSnackbar(true);
-  };
-
-  const handleSnackbarClose = () => {
-    setOpenSnackbar(false);
   };
 
   return (
@@ -78,17 +72,17 @@ const AddTheatre = () => {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <FormControl fullWidth variant="outlined">
-                <InputLabel htmlFor="city">City</InputLabel>
+                <InputLabel htmlFor="location">Location</InputLabel>
                 <Select
-                  label="City"
-                  name="city"
-                  value={theatreData.city}
+                  label="Location"
+                  name="location"
+                  value={theatreData.location}
                   onChange={handleChange}
                   required
                 >
-                  {cities.map((city) => (
-                    <MenuItem key={city} value={city}>
-                      {city}
+                  {locations.map((location) => (
+                    <MenuItem key={location.id} value={location}>
+                      {location.location_name}
                     </MenuItem>
                   ))}
                 </Select>
@@ -129,20 +123,6 @@ const AddTheatre = () => {
           </Grid>
         </form>
       </Paper>
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={6000}
-        onClose={handleSnackbarClose}
-      >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          onClose={handleSnackbarClose}
-          severity={snackbarSeverity}
-        >
-          {snackbarMessage}
-        </MuiAlert>
-      </Snackbar>
     </div>
   );
 };
