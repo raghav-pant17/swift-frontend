@@ -11,7 +11,6 @@ import Paper from "@mui/material/Paper";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Axios from "axios";
-import { post } from "jquery";
 
 const AddTheatre = () => {
   const [theatreData, setTheatreData] = useState({
