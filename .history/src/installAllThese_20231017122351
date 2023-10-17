@@ -7,7 +7,6 @@ npm i react-router-dom
 npm i react-bootstrap
 npm i react-slick
 npm install slick-carousel
-
 npm install @mui/joy
 npm i axios
 npm install @reduxjs/toolkit
