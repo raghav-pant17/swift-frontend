@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import axios from "axios";
 
 const headingStyle = {
   textAlign: "center",
@@ -50,13 +51,40 @@ const MovieForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // backend
+    const apiEndpoint = "endpoint"; // Replace this with your actual API endpoint
 
-    // backend message
-    setSnackbarSeverity("success");
-    setSnackbarMessage("Movie added successfully.");
+    const requestData = {
+      movie_name: formData.name,
+      genre: formData.genre,
+      director: formData.director,
+      discription: formData.description,
+      star_cast: formData.starCast,
+      poster: formData.poster,
+      release_date: formData.releaseDate,
+      closing_date: formData.closingDate,
+      isBlockbuster: formData.isBlockbuster ? "Yes" : "No",
+      prerelease: formData.prerelease ? "Yes" : "No",
+    };
 
-    setOpenSnackbar(true);
+    console.log("data:", requestData);
+
+    axios
+      .post(apiEndpoint, requestData)
+      .then((response) => {
+        // Handle successful response here if needed
+        console.log(response);
+        setSnackbarSeverity("success");
+        setSnackbarMessage("Movie added successfully.");
+      })
+      .catch((error) => {
+        // Handle error here if needed
+        console.error(error);
+        setSnackbarSeverity("error");
+        setSnackbarMessage("Failed to add movie. Please try again later.");
+      })
+      .finally(() => {
+        setOpenSnackbar(true);
+      });
   };
 
   return (
