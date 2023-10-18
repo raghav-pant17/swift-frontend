@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   FormControl,
   Select,
@@ -22,46 +23,32 @@ const ShowTimingForm = () => {
 
   useEffect(() => {
     // Fetch data for locations
-    fetch("http://localhost:8080/api/customer/locations")
-      .then((response) => response.json())
-      .then((data) => {
-        setLocations(data.userDetail);
+    axios
+      .get("http://localhost:8080/api/customer/locations")
+      .then((response) => {
+        setLocations(response.data.userDetail);
       })
       .catch((error) => console.error("Error fetching locations: ", error));
 
-    // Fetch data for theatres
-    fetch("http://localhost:8080/api/customer/theatres/1")
-      .then((response) => response.json())
-      .then((data) => {
-        setTheatres(data.theatres);
-      })
-      .catch((error) => console.error("Error fetching theatres: ", error));
-
     // Fetch data for movies
-    fetch("http://localhost:8080/api/customer/movies")
-      .then((response) => response.json())
-      .then((data) => {
-        setMovies(data.movieDetail);
+    axios
+      .get("http://localhost:8080/api/customer/movies")
+      .then((response) => {
+        setMovies(response.data.movieDetail);
       })
       .catch((error) => console.error("Error fetching movies: ", error));
   }, []);
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
-    console.log("setLocation", event.target.value);
+    console.log("Selected Location = ", event.target.value);
     // Fetch theatres based on the selected location
-    fetch(`http://localhost:8080/api/customer/theatres/${event.target.value}`)
-      .then((response) => response.json())
-      .then((data) => {
-        fetch(
-          `http://localhost:8080/api/customer/theatres/${event.target.value}`
-        );
-        setTheatres(data.theatres);
+    axios
+      .get(`http://localhost:8080/api/customer/theatres/${event.target.value}`)
+      .then((response) => {
+        setTheatres(response.data.theatres);
       })
       .catch((error) => console.error("Error fetching theatres: ", error));
-    console.log(
-      `http://localhost:8080/api/customer/theatres/${event.target.value}`
-    );
   };
 
   const handleTheatreChange = (event) => {
