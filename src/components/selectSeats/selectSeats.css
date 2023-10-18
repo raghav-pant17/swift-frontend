@@ -5,10 +5,11 @@
     background: #ffffff;
     color: rgb(53, 53, 53);
     font-size: 14px;
-    min-height: 100vh;
+    min-height: 70vh;
     display: grid;
     text-align: center;
   }
+
 
 .ShowCase {
     margin: 0 0 1rem;
@@ -26,6 +27,19 @@
     margin: 0 12px;
   }
 
+  .PriceLegend {
+    text-align: center;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    justify-content: center;
+    background: #cecdcd;
+    padding: 12px;
+    border-radius: 4px;
+    color: #3a3a3a;
+  }
+  
   .seat {
     display: inline-block;
     background: #ededed;
@@ -59,3 +73,87 @@
     perspective: 100px;
     box-shadow: 0 3px 10px 2px;
   }
+
+  .seats {
+    display: grid;
+    grid-gap: 6px;
+    grid-template-columns: repeat(11, min-content);
+    align-items: center;
+  }
+
+  .seats .seat:nth-of-type(11n + 4) {
+    margin-right: 18px;
+  }
+
+  .seats .seat:nth-of-type(11n + 8) {
+    margin-right: 18px;
+  }
+
+  .added-botton-margin {
+    margin-bottom: 18px;
+  }
+
+
+.seats .seat:not(.occupied):hover,
+.seats .seat:not(.occupied):focus {
+  cursor: pointer;
+  background: #c1eac5;
+  transform: scale(1.2);
+}
+
+.seats .seat.selected::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: transparent;
+  border: 1px solid #7bc47f;
+  animation: show-off 0.8s;
+  visibility: hidden;
+}
+
+.seat {
+  display: inline-block;
+  background: #e3e3e3;
+  width: 25px;
+  height: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+
+  position: relative;
+  top: 1px;
+}
+
+.seatNumber {
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+
+  position: relative;
+  top: 1px;
+}
+
+.seat.selected {
+  background: #7bc47f !important;
+}
+
+.seat.occupied {
+  background: #6e6e6e;
+}
+
+@keyframes show-off {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
