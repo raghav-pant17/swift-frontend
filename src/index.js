@@ -27,7 +27,7 @@ root.render(
         </Route> */}
         {/* <Route path="" element={<NoPage />} /> */}
         <Route exact path="/" Component={AdminLogin} />
-        {/* <Route exact path="/" Component={AdminDashboard} /> */}
+        <Route path="/admin-dashboard" Component={AdminDashboard} />
         <Route path="/add-location" Component={AddLocation} />
         <Route path="/add-theatre" Component={AddTheatre} />
         <Route path="/add-movie" Component={AddMovie} />
