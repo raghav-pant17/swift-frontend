@@ -12,6 +12,7 @@ import AddLocation from "./pages/admin/AddLocation";
 import AddTheatre from "./pages/admin/AddTheatre";
 import AddMovie from "./pages/admin/AddMovie";
 import AddShow from "./pages/admin/AddShow";
+import AdminLogin from "./pages/admin/AdminLogin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,7 +26,8 @@ root.render(
         {/* <Route exact path="/select-seats/" element={<SelectSeats />} />
         </Route> */}
         {/* <Route path="" element={<NoPage />} /> */}
-        <Route exact path="/" Component={AdminDashboard} />
+        <Route exact path="/" Component={AdminLogin} />
+        {/* <Route exact path="/" Component={AdminDashboard} /> */}
         <Route path="/add-location" Component={AddLocation} />
         <Route path="/add-theatre" Component={AddTheatre} />
         <Route path="/add-movie" Component={AddMovie} />
