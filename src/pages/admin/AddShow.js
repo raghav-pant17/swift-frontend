@@ -64,6 +64,11 @@ const ShowTimingForm = () => {
   };
 
   const handleAddShowTiming = () => {
+    // Check if all fields are filled
+    if (!location || !theatre || !movie || !showTiming) {
+      alert("All fields are required!");
+      return;
+    }
     // on Submit
     console.log("Location:", location);
     console.log("Theatre:", theatre);
@@ -94,6 +99,7 @@ const ShowTimingForm = () => {
             onChange={handleLocationChange}
             displayEmpty
             id="location-select"
+            required
           >
             <MenuItem value="" disabled>
               Select Location
@@ -112,6 +118,7 @@ const ShowTimingForm = () => {
             onChange={handleTheatreChange}
             displayEmpty
             id="theatre-select"
+            required
           >
             <MenuItem value="" disabled>
               Select Theatre
@@ -130,6 +137,7 @@ const ShowTimingForm = () => {
             onChange={handleMovieChange}
             displayEmpty
             id="movie-select"
+            required
           >
             <MenuItem value="" disabled>
               Select Movie
@@ -148,6 +156,7 @@ const ShowTimingForm = () => {
           value={showTiming}
           onChange={handleShowTimingChange}
           style={{ marginTop: "1rem" }}
+          required
         />
         <Button
           variant="contained"
