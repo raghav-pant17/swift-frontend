@@ -51,7 +51,7 @@ const MovieForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const apiEndpoint = "endpoint"; // Replace this with your actual API endpoint
+    const apiEndpoint = "http://localhost:8080/api/customer/addMovie";
 
     const requestData = {
       movie_name: formData.name,
@@ -71,13 +71,11 @@ const MovieForm = () => {
     axios
       .post(apiEndpoint, requestData)
       .then((response) => {
-        // Handle successful response here if needed
         console.log(response);
         setSnackbarSeverity("success");
         setSnackbarMessage("Movie added successfully.");
       })
       .catch((error) => {
-        // Handle error here if needed
         console.error(error);
         setSnackbarSeverity("error");
         setSnackbarMessage("Failed to add movie. Please try again later.");
