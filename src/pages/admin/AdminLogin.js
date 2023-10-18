@@ -41,17 +41,16 @@ const AdminLogin = () => {
       if (response.status === 200) {
         const adminData = response.data;
         console.log("Admin Data:", adminData);
-        // Handle successful login
-        navigate("/admin-dashboard"); // Navigate to admin dashboard on successful login
+        navigate("/admin-dashboard");
       } else {
-        const errorResponse = response.data; // Assuming error response contains a message field
+        const errorResponse = response.data;
         console.error("Invalid admin credentials");
         setErrorMessage(errorResponse.message || "Invalid admin credentials");
         setSnackbarOpen(true);
       }
     } catch (error) {
       console.error("Error occurred during login:", error);
-      // Handle network or server errors
+
       setErrorMessage(
         "An error occurred during login. Please try again later."
       );
