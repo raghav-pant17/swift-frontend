@@ -1,0 +1,35 @@
+.maindiv{
+    margin-left: 25rem;
+    margin-top: 5rem;
+    width: 40%;
+    height: 75%;
+}
+
+.containn{
+    /* margin-left: 10rem; */
+    display: inline;
+}
+.title{
+    margin-bottom: 4rem;
+    margin-left: 10rem;
+}
+.firstinput{
+    /* margin-left: 5rem; */
+}
+.secondinput{
+    /* margin-right: 20rem; */
+    margin-left: 20px;
+    
+}
+.btn{
+    margin-top: 3rem;
+    margin-left: 8.5rem;
+    background-color: green;
+    color: aliceblue;
+    border: none;
+    
+}
+
+.btn:hover{
+    background-color: rgb(0, 79, 0);
+}

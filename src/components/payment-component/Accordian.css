@@ -1,0 +1,21 @@
+.btn{
+    text-align: center;
+    background-color: #002984;
+    border-radius: .2rem;
+    margin-top: 0.8rem;
+    padding: 12px 28px;
+    margin-left: 5rem;
+}
+
+.contain{
+    display: flex;
+}
+
+.vl {
+    border-left: 6px solid green;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+  }

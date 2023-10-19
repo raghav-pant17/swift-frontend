@@ -1,0 +1,30 @@
+.Payment-accordian {
+  display: grid;
+  grid-template-columns: 1fr 5fr ;
+}
+.container{
+  display: grid;
+  grid-template-columns: 6fr 3fr ;
+}
+.Payment-sidebar {
+  /* background-color: aqua; */
+  margin-top: 1.5rem;
+}
+.Payment-option-items {
+  /* margin-top: 0.2rem; */
+  display: flex;
+  height: 3.2rem;
+  width: 100%;
+  border-bottom: 1px solid black;
+  align-items: center;
+  justify-content: center;
+}
+.btn{
+  text-align: center;
+  background-color: #002984;
+  border-radius: .2rem;
+  margin-top: 0.8rem;
+  padding: 12px 28px;
+  color: white;
+  margin-left: 5rem;
+}
