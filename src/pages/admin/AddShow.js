@@ -41,7 +41,7 @@ const ShowTimingForm = () => {
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
-    console.log("Selected Location = ", event.target.value);
+    console.log("Selected Location ID = ", event.target.value);
     // Fetch theatres based on the selected location
     axios
       .get(`http://localhost:8080/api/customer/theatres/${event.target.value}`)
@@ -52,10 +52,12 @@ const ShowTimingForm = () => {
   };
 
   const handleTheatreChange = (event) => {
+    console.log("Selected Theatre ID = ", event.target.value);
     setTheatre(event.target.value);
   };
 
   const handleMovieChange = (event) => {
+    console.log("Selected Movie ID = ", event.target.value);
     setMovie(event.target.value);
   };
 
@@ -150,7 +152,7 @@ const ShowTimingForm = () => {
           </Select>
         </FormControl>
         <TextField
-          label="Show Timing"
+          label="Show Timing in 24 hour format (hh:mm:ss)"
           variant="outlined"
           fullWidth
           value={showTiming}

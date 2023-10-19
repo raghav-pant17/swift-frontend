@@ -24,7 +24,7 @@ const AdminLogin = () => {
 
   const handleLogin = async () => {
     if (!username || !password) {
-      setErrorMessage("All fields are required");
+      setErrorMessage("Fill all the required fields");
       setSnackbarOpen(true);
       return;
     }
@@ -50,7 +50,6 @@ const AdminLogin = () => {
       }
     } catch (error) {
       console.error("Error occurred during login:", error);
-
       setErrorMessage(
         "An error occurred during login. Please try again later."
       );
