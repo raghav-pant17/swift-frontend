@@ -24,9 +24,9 @@ const ShowTimingForm = () => {
   useEffect(() => {
     // Fetch data for locations
     axios
-      .get("http://localhost:8080/api/customer/locations")
+      .get("http://localhost:8080/api/location/locations")
       .then((response) => {
-        setLocations(response.data.userDetail);
+        setLocations(response.data.locationDetails);
       })
       .catch((error) => console.error("Error fetching locations: ", error));
 

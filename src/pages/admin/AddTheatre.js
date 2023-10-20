@@ -21,9 +21,9 @@ const AddTheatre = () => {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:8080/api/customer/locations")
+    Axios.get("http://localhost:8080/api/location/locations")
       .then((response) => {
-        setLocations(response.data.userDetail);
+        setLocations(response.data.locationDetails);
       })
       .catch((error) => {
         console.error("Error fetching location data:", error);
@@ -41,13 +41,15 @@ const AddTheatre = () => {
     // Validation
     if (theatreData.name && theatreData.address && theatreData.location) {
       const postData = {
-        theater_address: theatreData.address,
-        theater_name: theatreData.name,
-        location_id: theatreData.location.id,
+        theaterAddress: theatreData.address,
+        theaterName: theatreData.name,
       };
       console.log("1", postData);
 
-      Axios.post("endpoint", postData)
+      Axios.post(
+        `http://localhost:8080/api/location/addTheatre/${theatreData.location.id}`,
+        postData
+      )
         .then((response) => {
           console.log("Theatre added successfully.", response);
         })

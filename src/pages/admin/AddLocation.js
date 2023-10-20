@@ -37,7 +37,7 @@ const AddLocation = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/customer/addLocation",
+        "http://localhost:8080/api/location/addLocation",
         location
       );
       console.log(response.data);

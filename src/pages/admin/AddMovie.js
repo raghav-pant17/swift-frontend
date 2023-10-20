@@ -57,13 +57,13 @@ const MovieForm = () => {
       movie_name: formData.name,
       genre: formData.genre,
       director: formData.director,
-      discription: formData.description,
+      description: formData.description,
       star_cast: formData.starCast,
       poster: formData.poster,
       release_date: formData.releaseDate,
       closing_date: formData.closingDate,
-      isBlockbuster: formData.isBlockbuster ? "Yes" : "No",
-      prerelease: formData.prerelease ? "Yes" : "No",
+      isBlockbuster: formData.isBlockbuster ? "True" : "False",
+      prerelease: formData.prerelease ? "True" : "False",
     };
 
     console.log("data:", requestData);
